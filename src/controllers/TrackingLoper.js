@@ -1,12 +1,14 @@
 import TrackingLoper from '../models/TrackingLoperModel.js'
 
-export const getGudang = async(req, res) => {
+export const getTrackingLoper = async(req, res) => {
     try {
-        const menu = await TrackingLoper.findAll()
-        res.json(menu)
-    } catch (e) {
-        res.json({
-            message: e.message
-        })
+        const data = await TrackingLoper.findAll({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.send(data);
+    } catch (err) {
+        console.log(err);
     }
 }

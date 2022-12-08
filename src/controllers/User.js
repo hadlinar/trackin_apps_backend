@@ -40,14 +40,13 @@ export const signIn = (req, res) => {
         var token = jwt.sign({ id: user.id }, config.secret, {
           expiresIn: 86400 //24jam
         });
-  
+
         res.status(200).send({
-            username: user.username,
-            nama: user.nama,
+            massage: 'ok',
             token: token
         });
       })
       .catch(err => {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ message: "Kendala internal" });
       });
   };

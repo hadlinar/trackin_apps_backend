@@ -1,9 +1,8 @@
-const jwt = require("jsonwebtoken");
-const config = require("../config/database.js");
-const db = require("../models");
+import jwt from "jsonwebtoken"
+import config from "../config/database.js"
 
-verifyToken = (req, res, next) => {
-  let token = req.headers["x-access-token"];
+export const verifyToken = (req, res, next) => {
+  const token = req.headers["x-access-token"];
 
   if (!token) {
     return res.status(403).send({
@@ -22,8 +21,4 @@ verifyToken = (req, res, next) => {
   });
 };
 
-const authJwt = {
-  verifyToken: verifyToken
-};
-
-module.exports = authJwt;
+export default verifyToken
