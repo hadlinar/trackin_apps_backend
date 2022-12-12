@@ -1,12 +1,10 @@
-import Loper from '../models/LoperModel.js'
+import pool from '../config/database.js'
 
-export const getLoper = async(req, res) => {
-    try {
-        const menu = await Loper.findAll()
-        res.json(menu)
-    } catch (e) {
-        res.json({
-            message: e.message
-        })
+class Loper{
+    async getAllLoper() {
+        let results = await pool.query(`SELECT nik, branch_id, nama_loper, status_kerja FROM public.loper`).catch(console.log);
+        return results.rows;
     }
 }
+
+export default Loper

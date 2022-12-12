@@ -1,30 +1,12 @@
-import PengirimanFaktur from '../models/PengirimanFakturModel.js'
-import jwt from 'jsonwebtoken'
-import config from '../config/auth.config.js'
-import verifyToken from '../middleware/authJwt.js'
+import pool from '../config/database.js'
 
-export const getPengirimanFaktur = (res, req) => {
-    console.log(req.params)
-    let userId = req.params.id
-    console.log(req.token)
-    console.log(userId)
-    jwt.verify(req.token, config.secret, (err, authData) => {
-        console.log(authData.id)
-        try {
-            const data = PengirimanFaktur.findAll({
-                where: {
-                    id_ref_pengiriman: userId
-                }
-            });
-            res.send(data);
-        } catch (err) {
-            res.status(500).json({
-                message: 'Failed to authenticate token.'
-           });
-
-           res.status(403).json({
-               message: "Session time out",
-           });
-        }
-    })
+class PengirimanFaktur{
+    async getPengirimanFakturById(idPengiriman) {
+        let results = await pool.query(`SELECT no_faktur, start_faktur, finish_faktur, check_faktur
+        FROM public.pengiriman_faktur
+        WHERE id_ref_pengiriman=$1;`, [idPengiriman]).catch(console.log);
+        return results.rows;
+    }
 }
+
+export default PengirimanFaktur

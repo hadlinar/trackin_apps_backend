@@ -1,14 +1,12 @@
-import TrackingLoper from '../models/TrackingLoperModel.js'
+import pool from '../config/database.js'
 
-export const getTrackingLoper = async(req, res) => {
-    try {
-        const data = await TrackingLoper.findAll({
-            where: {
-                id: req.params.id
-            }
-        });
-        res.send(data);
-    } catch (err) {
-        console.log(err);
+class TrackingLoper{
+    async getLoperById(idPengiriman) {
+        let results = await pool.query(`SELECT id, id_pengiriman, id_loper, branch_id, start_loper, finish_loper, tanggal
+        FROM public.tracking_loper
+        WHERE id_ref_pengiriman=$1;`, [idPengiriman]).catch(console.log);
+        return results.rows;
     }
 }
+
+export default TrackingLoper

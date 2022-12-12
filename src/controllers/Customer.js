@@ -1,12 +1,12 @@
-import Customer from '../models/CustomerModel.js'
+import pool from '../config/database.js'
 
-export const getCustomer = async(req, res) => {
-    try {
-        const menu = await Customer.findAll()
-        res.json(menu)
-    } catch (e) {
-        res.json({
-            message: e.message
-        })
-    }
+class Customer{
+    async getCustomer(branchId){
+        let results = await pool.query(`SELECT cust_id, cust_name, address, branch_id
+        FROM public.mst_customer
+        WHERE branch_id=$1;`, [branchId]).catch(console.log);
+        return results.rows;
+    };
 }
+
+export default Customer;
