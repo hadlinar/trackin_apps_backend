@@ -7,10 +7,10 @@ class User{
   }
 
   async getUserById(username) {
-    let results = await db.query(`SELECT u.id, u.username, u.role_id, u.branch_id, u.password, u.is_active, u.nama
+    let results = await pool.query(`SELECT u.id, u.username, u.role_id, u.branch_id, f_branch_name(u.branch_id) branch, u.is_active, u.nama
         FROM public.mst_user as u, public.loper as l
         WHERE u.username = l.nik AND u.username=$1;`, [username]).catch(console.log);
-        return results;
+        return results.rows[0];
   }
 }
 

@@ -8,6 +8,7 @@ import branchRouter from './routes/Branch.js'
 import loginRouter from './routes/Login.js'
 import pengirimanFakturRouter from './routes/PengirimanFaktur.js'
 import trackingLoperRouter from './routes/TrackingLoper.js'
+import logoutRouter from './routes/Logout.js'
 
 const app = express();
 
@@ -34,5 +35,6 @@ app.use(branchRouter);
 app.use(loginRouter);
 app.use(pengirimanFakturRouter);
 app.use(trackingLoperRouter);
+app.use(logoutRouter);
 
 app.listen(5000, () => console.log('Server running at http://localhost:5000'))

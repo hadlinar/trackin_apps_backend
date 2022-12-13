@@ -1,5 +1,6 @@
 import express from 'express'
 import User from '../controllers/User.js'
+import jwt from 'jsonwebtoken'
 const router = express.Router()
 
 router.get('/user', verifyToken, (req, res)=>{
