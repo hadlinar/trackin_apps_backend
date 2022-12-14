@@ -1,12 +1,12 @@
-import Gudang from '../models/GudangModel.js'
+import pool from '../config/database.js'
 
-export const getGudang = async(req, res) => {
-    try {
-        const menu = await Gudang.findAll()
-        res.json(menu)
-    } catch (e) {
-        res.json({
-            message: e.message
-        })
+class Gudang{
+    async getGudangById(branchId) {
+        let results = await pool.query(`SELECT no_faktur, branch_id, status_proses, sales_id, invoice_date, so_no, so_date, sales_name
+        FROM public.trn_gudang
+        WHERE branch_id=$1;`, [branchId]).catch(console.log);
+        return results.rows;
     }
 }
+
+export default Gudang
