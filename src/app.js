@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import compression from 'compression'
+import http from 'http'
 
 import userRouter from './routes/User.js'
 import loperRouter from './routes/Loper.js'
@@ -39,7 +40,6 @@ app.use(logoutRouter);
 
 // app.listen(5000, () => console.log('Server running at http://localhost:5000'))
 
-const http = require('http')
 const port = 3001
 
 app.use(function(req, res, next) {
