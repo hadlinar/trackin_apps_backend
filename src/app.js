@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import compression from 'compression'
+import http from 'http'
 
 import userRouter from './routes/User.js'
 import loperRouter from './routes/Loper.js'
@@ -37,4 +38,17 @@ app.use(pengirimanFakturRouter);
 app.use(trackingLoperRouter);
 app.use(logoutRouter);
 
-app.listen(5000, () => console.log('Server running at http://localhost:5000'))
+// app.listen(5000, () => console.log('Server running at http://localhost:5000'))
+
+const port = 3001
+
+app.use(function(req, res, next) {
+    res.status(404);
+    res.send('404: File Not Found');
+});
+
+const hostname = '127.0.0.1'
+
+http.createServer(app).listen(port, () => {
+    console.log(`Server running at on port ${port}`);
+});
