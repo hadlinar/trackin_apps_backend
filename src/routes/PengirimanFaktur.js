@@ -82,33 +82,33 @@ router.post('/toba/pengiriman-faktur/:id', verifyToken, (req, res)=>{
     });  
 });
 
-router.get('/toba/pengiriman-faktur/:id/:idLoper', verifyToken, (req, res)=>{
-    let id = req.params.id;
-    let idLoper = req.params.idLoper;
-    let noFaktur = req.originalUrl.split('=');
+// router.get('/toba/pengiriman-faktur/:id/:idLoper', verifyToken, (req, res)=>{
+//     let id = req.params.id;
+//     let idLoper = req.params.idLoper;
+//     let noFaktur = req.originalUrl.split('=');
 
-    let fktFormatted = noFaktur[1].split('%2F').join('/')
+//     let fktFormatted = noFaktur[1].split('%2F').join('/')
 
-    jwt.verify(req.token, process.env.SECRET_KEY,(err,authData)=>{
-        try {
-            let pengirimanFaktur = new PengirimanFaktur().getDetailFaktur(idLoper, id, fktFormatted)
-            pengirimanFaktur.then(function(result) {
-                res.status(200).json({
-                    "message": "ok",
-                    "result": result
-                })
-            })
-        } catch (e) {
-            res.status(500).json({
-                 message: 'Failed to authenticate token.'
-            });
+//     jwt.verify(req.token, process.env.SECRET_KEY,(err,authData)=>{
+//         try {
+//             let pengirimanFaktur = new PengirimanFaktur().getDetailFaktur(idLoper, id, fktFormatted)
+//             pengirimanFaktur.then(function(result) {
+//                 res.status(200).json({
+//                     "message": "ok",
+//                     "result": result
+//                 })
+//             })
+//         } catch (e) {
+//             res.status(500).json({
+//                  message: 'Failed to authenticate token.'
+//             });
 
-            res.status(403).json({
-                message: "Session time out",
-            });
-        }
-    });  
-});
+//             res.status(403).json({
+//                 message: "Session time out",
+//             });
+//         }
+//     });  
+// });
 
 router.get('/toba/pengiriman-faktur/rekap/:idLoper/:filter', verifyToken, (req, res)=>{
     let idLoper = req.params.idLoper;
