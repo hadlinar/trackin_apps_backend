@@ -1,4 +1,4 @@
-import pool from '../config/database.js'
+const pool = require( '../config/database.js')
 
 class Branch {
     async getBranch(){
@@ -14,4 +14,4 @@ class Branch {
     }
 }
 
-export default Branch
+module.exports = Branch;

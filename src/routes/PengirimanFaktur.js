@@ -1,6 +1,6 @@
-import express from 'express'
-import PengirimanFaktur from '../controllers/PengirimanFaktur.js'
-import jwt from 'jsonwebtoken'
+const express = require('express')
+const PengirimanFaktur = require('../controllers/PengirimanFaktur.js')
+const jwt = require('jsonwebtoken')
 const router = express.Router()
 
 router.get('/toba/pengiriman-faktur/:id', verifyToken, (req, res)=>{
@@ -154,4 +154,4 @@ function verifyToken(req, res, next) {
     }  
 }
 
-export default router
+module.exports = router;

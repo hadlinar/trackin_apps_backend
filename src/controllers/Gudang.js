@@ -1,4 +1,4 @@
-import pool from '../config/database.js'
+const pool = require( '../config/database.js')
 
 class Gudang{
     async getGudangById(branchId) {
@@ -9,4 +9,4 @@ class Gudang{
     }
 }
 
-export default Gudang
+module.exports = Gudang;

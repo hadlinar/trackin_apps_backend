@@ -1,4 +1,4 @@
-import pool from '../config/database.js'
+const pool = require( '../config/database.js')
 
 class Customer{
     async getCustomer(branchId){
@@ -9,4 +9,4 @@ class Customer{
     };
 }
 
-export default Customer;
+module.exports = Customer;

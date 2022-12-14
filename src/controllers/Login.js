@@ -1,4 +1,4 @@
-import db from '../config/database.js'
+const db = require( '../config/database.js')
 
 class Login {
     async login(username) {
@@ -19,4 +19,4 @@ class Login {
     };
 }
 
-export default Login
+module.exports = Login;

@@ -1,6 +1,5 @@
-import express from 'express'
-import Branch from '../controllers/Branch.js'
-
+const express = require('express')
+const Branch = require('../controllers/Branch.js')
 const router = express.Router()
 
 router.get('/toba/branch', async (req, res) => {
@@ -21,4 +20,4 @@ router.get('/toba/branch/:id', async (req, res) => {
     })
 })
 
-export default router
+module.exports = router;

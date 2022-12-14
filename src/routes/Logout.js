@@ -1,6 +1,6 @@
-import express from 'express'
-import jwt from 'jsonwebtoken'
-import dotenv from 'dotenv'
+const express = require('express')
+const jwt = require('jsonwebtoken')
+const dotenv = require('dotenv')
 const router = express.Router();
 dotenv.config()
 
@@ -29,4 +29,4 @@ function verifyToken(req, res, next) {
     }  
 } 
 
-export default router
+module.exports = router;

@@ -1,6 +1,6 @@
-import express from 'express'
-import Loper from '../controllers/Loper.js'
-import jwt from 'jsonwebtoken'
+const express = require('express')
+const Loper = require('../controllers/Loper.js')
+const jwt = require('jsonwebtoken')
 const router = express.Router()
 
 router.get('/toba/loper/all', async(req, res) => {
@@ -47,4 +47,4 @@ function verifyToken(req, res, next) {
     }  
 }
 
-export default router
+module.exports = router;

@@ -1,6 +1,6 @@
-import express from 'express'
-import User from '../controllers/User.js'
-import jwt from 'jsonwebtoken'
+const express = require('express')
+const User = require('../controllers/User.js')
+const jwt = require('jsonwebtoken')
 const router = express.Router()
 
 router.get('/toba/user', verifyToken, (req, res)=>{
@@ -39,4 +39,4 @@ function verifyToken(req, res, next) {
     }  
 }
 
-export default router
+module.exports = router;

@@ -1,4 +1,4 @@
-import pool from '../config/database.js'
+const pool = require( '../config/database.js')
 
 class PengirimanFaktur{
     async getPengirimanFakturById(idPengiriman) {
@@ -42,4 +42,4 @@ class PengirimanFaktur{
     }
 }
 
-export default PengirimanFaktur
+module.exports = PengirimanFaktur;
