@@ -1,7 +1,6 @@
 import express from 'express'
 import PengirimanFaktur from '../controllers/PengirimanFaktur.js'
 import jwt from 'jsonwebtoken'
-import e from 'express';
 const router = express.Router()
 
 router.get('/toba/pengiriman-faktur/:id', verifyToken, (req, res)=>{
