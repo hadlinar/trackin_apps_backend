@@ -1,5 +1,4 @@
-import pg from 'pg'
-const { Pool } = pg
+const Pool = require('pg').Pool
 
 const pool = new Pool({
   user: 'tekinfo',
@@ -9,4 +8,4 @@ const pool = new Pool({
   port: 5432,
 })
 
-export default pool;
+module.exports = pool;

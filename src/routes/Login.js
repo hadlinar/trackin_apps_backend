@@ -1,9 +1,9 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import bcrypt from 'bcrypt'
-import db from '../config/database.js'
-import jwt from 'jsonwebtoken'
-import Login from '../controllers/Login.js'
+const express = require('express')
+const dotenv = require('dotenv')
+const bcrypt = require('bcrypt')
+const db = require('../config/database.js')
+const jwt = require('jsonwebtoken')
+const Login = require('../controllers/Login.js')
 
 dotenv.config()
 
@@ -109,4 +109,4 @@ router.post('/toba/register', async (req, res) => {
     };
 });
 
-export default router
+module.exports = router;

@@ -1,4 +1,4 @@
-import pool from '../config/database.js'
+const pool = require( '../config/database.js')
 
 class TrackingLoper{
     async getLoperById(idPengiriman) {
@@ -48,4 +48,4 @@ class TrackingLoper{
     }
 }
 
-export default TrackingLoper
+module.exports = TrackingLoper;

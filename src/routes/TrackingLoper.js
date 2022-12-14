@@ -1,7 +1,7 @@
-import express from 'express'
-import TrackingLoper from '../controllers/TrackingLoper.js'
-import jwt from 'jsonwebtoken'
-const router = express.Router()
+const express = require('express');
+const TrackingLoper = require('../controllers/TrackingLoper.js');
+const jwt = require('jsonwebtoken');
+const router = express.Router();
 
 router.get('/toba/track-loper/:id', verifyToken, (req, res)=>{
     let id = req.params.id;
@@ -64,4 +64,4 @@ function verifyToken(req, res, next) {
     }  
 }
 
-export default router
+module.exports = router;

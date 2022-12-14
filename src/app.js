@@ -1,17 +1,16 @@
-import express from 'express'
-import cors from 'cors'
-import compression from 'compression'
-import http from 'http'
-
-import userRouter from './routes/User.js'
-import loperRouter from './routes/Loper.js'
-import branchRouter from './routes/Branch.js'
-import loginRouter from './routes/Login.js'
-import pengirimanFakturRouter from './routes/PengirimanFaktur.js'
-import trackingLoperRouter from './routes/TrackingLoper.js'
-import logoutRouter from './routes/Logout.js'
-
+const compression = require('compression')
+const express = require("express");
+const cors = require("cors");
 const app = express();
+const http = require('http')
+
+const userRouter = require('./routes/User.js')
+const loperRouter = require('./routes/Loper.js')
+const branchRouter = require('./routes/Branch.js')
+const loginRouter = require('./routes/Login.js')
+const pengirimanFakturRouter = require('./routes/PengirimanFaktur.js')
+const trackingLoperRouter = require('./routes/TrackingLoper.js')
+const logoutRouter = require('./routes/Logout.js')
 
 app.use(compression());
 app.use(express.json());

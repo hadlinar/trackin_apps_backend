@@ -1,4 +1,4 @@
-import pool from '../config/database.js'
+const pool = require( '../config/database.js')
 
 class Loper{
     async getAllLoper() {
@@ -14,4 +14,4 @@ class Loper{
     }
 }
 
-export default Loper
+module.exports = Loper;
