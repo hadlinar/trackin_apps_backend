@@ -25,6 +25,14 @@ class PengirimanFaktur{
         return results.rows;
     }
 
+    async rekapFaktur(idLoper, filtered) {
+        let results = await pool.query(`
+        SELECT COUNT(DISTINCT pf.id_ref_pengiriman) pengiriman, COUNT(DISTINCT pf.no_faktur) faktur
+		FROM pengiriman_faktur pf, tracking_loper l
+		WHERE pf.id_ref_pengiriman = l.id AND l.id_loper = $1 AND pf.start_faktur >= now() - $2::interval;`, [idLoper, filtered]).catch(console.log);
+        return results.rows[0];
+    }
+
     async updateFinishTime(idPengiriman, noFaktur, finishTime, deskripsi, check_faktur) {
         await pool.query(`
         UPDATE public.pengiriman_faktur
