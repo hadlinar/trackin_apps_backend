@@ -9,7 +9,7 @@ dotenv.config()
 
 const router = express.Router()
 
-router.post('/login', async (req, res) => {
+router.post('/toba/login', async (req, res) => {
     const { username, password } = req.body;
     try {
         const data = await new Login().login(username)
@@ -51,7 +51,7 @@ router.post('/login', async (req, res) => {
     };
 });
 
-router.post('/register', async (req, res) => {
+router.post('/toba/register', async (req, res) => {
     const { id, username, password, role_id, branch_id, is_active, nama } =  req.body;
     try {
         const data  =  await db.query(`SELECT * FROM public.mst_user WHERE username= $1;`, [username]);

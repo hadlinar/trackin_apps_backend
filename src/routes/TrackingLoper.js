@@ -3,7 +3,7 @@ import TrackingLoper from '../controllers/TrackingLoper.js'
 import jwt from 'jsonwebtoken'
 const router = express.Router()
 
-router.get('/track-loper/:id', verifyToken, (req, res)=>{
+router.get('/toba/track-loper/:id', verifyToken, (req, res)=>{
     let id = req.params.id;
 
     jwt.verify(req.token, process.env.SECRET_KEY,(err,authData)=>{
@@ -27,7 +27,7 @@ router.get('/track-loper/:id', verifyToken, (req, res)=>{
     });  
 });
 
-router.get('/track-loper/history/:id', verifyToken, (req, res)=>{
+router.get('/toba/track-loper/history/:id', verifyToken, (req, res)=>{
     let id = req.params.id;
 
     jwt.verify(req.token, process.env.SECRET_KEY,(err,authData)=>{

@@ -3,7 +3,7 @@ import Branch from '../controllers/Branch.js'
 
 const router = express.Router()
 
-router.get('/branch', async (req, res) => {
+router.get('/toba/branch', async (req, res) => {
     let branch = await new Branch().getBranch();
     return res.status(200).json({
         "message": "ok",
@@ -11,7 +11,7 @@ router.get('/branch', async (req, res) => {
     })
 })
 
-router.get('/branch/:id', async (req, res) => {
+router.get('/toba/branch/:id', async (req, res) => {
     let id = req.params.id;
 
     let branch = await new Branch().getBranchById(id);

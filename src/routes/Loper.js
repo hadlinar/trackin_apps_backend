@@ -3,7 +3,7 @@ import Loper from '../controllers/Loper.js'
 import jwt from 'jsonwebtoken'
 const router = express.Router()
 
-router.get('/loper/all', async(req, res) => {
+router.get('/toba/loper/all', async(req, res) => {
     let loper = await new Loper().getAllLoper();
     return res.status(200).json({
         "message": "ok",
@@ -11,7 +11,7 @@ router.get('/loper/all', async(req, res) => {
     })
 })
 
-router.get('/loper', verifyToken, (req, res)=>{
+router.get('/toba/loper', verifyToken, (req, res)=>{
     jwt.verify(req.token, process.env.SECRET_KEY,(err,authData)=>{
         try {
             let nik = authData.username

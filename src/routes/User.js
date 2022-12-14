@@ -3,7 +3,7 @@ import User from '../controllers/User.js'
 import jwt from 'jsonwebtoken'
 const router = express.Router()
 
-router.get('/user', verifyToken, (req, res)=>{
+router.get('/toba/user', verifyToken, (req, res)=>{
     jwt.verify(req.token, process.env.SECRET_KEY,(err,authData)=>{
         try {
             let username = authData.username

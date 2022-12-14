@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 const router = express.Router();
 dotenv.config()
 
-router.post('/logout', verifyToken, (req, res) => {
+router.post('/toba/logout', verifyToken, (req, res) => {
     const authHeader = req.headers["authorization"];
 
     jwt.sign(authHeader, "", { expiresIn: 1 } , (logout, err) => {
