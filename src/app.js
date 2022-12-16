@@ -39,7 +39,7 @@ app.use(logoutRouter);
 
 // app.listen(5000, () => console.log('Server running at http://localhost:5000'))
 
-const port = 3000
+const port = 3001
 
 app.use(function(req, res, next) {
     res.status(404);
